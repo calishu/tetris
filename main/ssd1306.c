@@ -34,6 +34,8 @@ void ssd1306_init()
     i2c_master_start(cmd);
 
     i2c_master_write_byte(cmd, (DISPLAY_I2C_ADDR << 1) | I2C_MASTER_WRITE, true);
+
+    i2c_master_write_byte(cmd, 0xAE, true); // display OFF
     i2c_master_write_byte(cmd, 0x00, true); // control byte stream
     i2c_master_write_byte(cmd, 0xAF, true); // display ON
 
