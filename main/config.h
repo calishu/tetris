@@ -3,6 +3,8 @@
 
 #include "driver/gpio.h"
 
+#define TAG "Tetris"
+
 #define GPIO_DISPLAY_SCL GPIO_NUM_8
 #define GPIO_DISPLAY_SDA GPIO_NUM_9
 #define GPIO_DISPLAY_RES GPIO_NUM_6
