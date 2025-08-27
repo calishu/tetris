@@ -16,7 +16,7 @@ void register_display()
         .sda_io_num = GPIO_DISPLAY_SDA,
 
         .scl_pullup_en = GPIO_PULLDOWN_ENABLE,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
+        .sda_pullup_en = GPIO_PULLDOWN_ENABLE,
 
         .master.clk_speed = 1000000};
 
