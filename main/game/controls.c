@@ -1,8 +1,9 @@
 #include "game/controls.h"
+#include "config.h"
 
 #include "esp_log.h"
 
-gpio_config_t register_button(gpio_num_t gpio_num)
+gpio_config_t init_button(gpio_num_t gpio_num)
 {
     gpio_config_t button_conf = {
         .pin_bit_mask = (1ULL << gpio_num),
@@ -13,4 +14,10 @@ gpio_config_t register_button(gpio_num_t gpio_num)
 
     gpio_config(&button_conf);
     return button_conf;
+}
+
+buttons register_buttons()
+{
+    buttons btns = {.button_left = init_button(GPIO_BUTTON_L), .button_right = init_button(GPIO_BUTTON_R)};
+    return btns;
 }
