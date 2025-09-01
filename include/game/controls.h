@@ -11,6 +11,6 @@ typedef struct buttons
 
 gpio_config_t init_button(gpio_num_t gpio_num);
 buttons register_buttons();
-[[deprecated]] void control_loop();
+void control_loop(volatile bool *stop_action);
 
 #endif // INCLUDE_GAME_CONTROLS_H_

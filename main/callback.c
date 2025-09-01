@@ -8,7 +8,7 @@ void init_cb_vec(callback_vec *vec, size_t init_size)
     vec->size      = init_size;
 };
 
-void register_callback(callback_vec *vec, void *function, gpio_config_t activation_key)
+void register_callback(callback_vec *vec, void (*function)(void), gpio_config_t activation_key)
 {
     if (vec->used == vec->size)
     {
