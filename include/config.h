@@ -13,5 +13,6 @@
 #define GPIO_BUTTON_R GPIO_NUM_36
 
 #define DISPLAY_I2C_ADDR 0x3c
+#define DISPLAY_SIZE (int)128, (int)64
 
 #endif // INCLUDE_TETRIS_CONFIG_H_
