@@ -22,17 +22,29 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             build-essential \
-            cmake
+            git \
+            wget \
+            flex \
+            bison \
+            gperf \
+            python3 \
+            python3-pip \
+            python3-venv \  
+            cmake \
+            ninja-build \
+            ccache \
+            libffi-dev \
+            libssl-dev \
+            dfu-util \
+            libusb-1.0-0
 
-      - name: Configure CMake
-        run: cmake -S. -Bbuild
+      - name: Setup ESP-IDF
+        run: |
+          git clone --recurisive https://github.com/espressif/esp-idf.git
+          cd ./esp-idf
+          ./install.sh esp32,esp32s3
 
       - name: Build project
-        run: cmake --build build -j$(nproc)
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: tetris-build
-          path: |
-            build/tetris-build
+        run: |
+          source ./esp-idf/export.sh
+          idf.py app-build
