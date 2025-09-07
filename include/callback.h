@@ -9,7 +9,6 @@
 typedef struct callback
 {
     void (*function)(void);
-    gpio_config_t activation_key;
 } callback;
 
 typedef struct callback_vec
@@ -20,7 +19,7 @@ typedef struct callback_vec
 } callback_vec;
 
 void init_cb_vec(callback_vec *vec, size_t init_size);
-void register_callback(callback_vec *vec, void (*function)(void), gpio_config_t activation_key);
+void register_callback(callback_vec *vec, void (*function)(void));
 void free_callbacks(callback_vec *vec);
 
 #endif // INCLUDE_INCLUDE_CALLBACK_H_

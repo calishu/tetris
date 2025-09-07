@@ -8,14 +8,14 @@ void init_cb_vec(callback_vec *vec, size_t init_size)
     vec->size      = init_size;
 };
 
-void register_callback(callback_vec *vec, void (*function)(void), gpio_config_t activation_key)
+void register_callback(callback_vec *vec, void (*function)(void))
 {
     if (vec->used == vec->size)
     {
         vec->size += 1;
         vec->callbacks = realloc(vec->callbacks, vec->size * sizeof(void *));
     }
-    callback cb                 = {.function = function, .activation_key = activation_key};
+    callback cb                 = {.function = function};
     vec->callbacks[vec->used++] = cb;
 }
 
