@@ -1,10 +1,10 @@
 #include "config.h"
 
-#include <stdlib.h>
+#include <stdint.h>
 
-int **framebuffer_init()
+uint8_t **framebuffer_init()
 {
-    int **framebuf = malloc(DISPLAY_SIZE_HEIGHT * sizeof(int *));
+    uint8_t **framebuf = malloc(DISPLAY_SIZE_HEIGHT * sizeof(int *));
     if (!framebuf) return NULL;
 
     for (size_t y = 0; y < DISPLAY_SIZE_HEIGHT; ++y)
@@ -25,7 +25,7 @@ int **framebuffer_init()
 
 void framebuffer_free(int **framebuf)
 {
-    for (size_t i = 0; i < DISPLAY_SIZE_HEIGHT; ++y)
+    for (size_t i = 0; i < DISPLAY_SIZE_HEIGHT; ++i)
         free(framebuf[i]);
     free(framebuf);
 }
